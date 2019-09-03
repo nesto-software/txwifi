@@ -74,14 +74,14 @@ func (c *Command) StartDnsmasq() {
 		"--dhcp-vendorclass=" + c.SetupCfg.DnsmasqCfg.VendorClass,
 		"--dhcp-authoritative",
 		"--log-facility=-",
-		"--dhcp-option-force=160,\"http://0.0.0.0/\"", // see: https://tools.ietf.org/html/rfc7710
-		"address=/hotspot.localnet/192.168.24.1",
-		"address=/connectivitycheck.gstatic.com/216.58.206.131",
-		"address=/www.gstatic.com/216.58.206.99",
-		"address=/www.apple.com/2.16.21.112",
-		"address=/captive.apple.com/17.253.35.204",
-		"address=/clients3.google.com/216.58.204.46",
-		"address=/www.msftconnecttest.com/13.107.4.52",
+		"--dhcp-option-force=160,http://192.168.27.1/", // see: https://tools.ietf.org/html/rfc7710
+		"--address=/hotspot.localnet/192.168.27.1",
+		"--address=/connectivitycheck.gstatic.com/216.58.206.131",
+		"--address=/www.gstatic.com/216.58.206.99",
+		"--address=/www.apple.com/2.16.21.112",
+		"--address=/captive.apple.com/17.253.35.204",
+		"--address=/clients3.google.com/216.58.204.46",
+		"--address=/www.msftconnecttest.com/13.107.4.52",
 	}
 
 	cmd := exec.Command("dnsmasq", args...)
