@@ -20,6 +20,13 @@ func (c *Command) RemoveApInterface() {
 	cmd.Wait()
 }
 
+// Disable power saving mode by disabling power management
+func (c *Command) DisablePowerManagement() {
+	cmd := exec.Command("iw", "uap0", "set", "power_save", "off")
+	cmd.Start()
+	cmd.Wait()
+}
+
 // ConfigureApInterface configured the AP interface.
 func (c *Command) ConfigureApInterface() {
 	cmd := exec.Command("ifconfig", "uap0", c.SetupCfg.HostApdCfg.Ip)
