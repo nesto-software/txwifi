@@ -66,11 +66,11 @@ func (wpa *WpaCfg) StartAP() {
 	}
 
 	// note: we use wlan1 as ap instead
-	//command.RemoveApInterface()
-	//command.AddApInterface()
-	//command.UpApInterface()
+	command.RemoveApInterface()
+	command.AddApInterface()
+	command.UpApInterface()
 	command.ConfigureApInterface()
-	//command.DisablePowerManagement()
+	command.DisablePowerManagement()
 
 	cmd := exec.Command("hostapd", "-d", "/dev/stdin")
 
@@ -91,7 +91,7 @@ func (wpa *WpaCfg) StartAP() {
 		}
 	}()
 
-	cfg := `interface=wlan1
+	cfg := `interface=uap0
 ssid=` + wpa.WpaCfg.HostApdCfg.Ssid + `
 hw_mode=g
 channel=` + wpa.WpaCfg.HostApdCfg.Channel + `
