@@ -69,6 +69,7 @@ func (wpa *WpaCfg) StartAP() {
 	command.AddApInterface()
 	command.UpApInterface()
 	command.ConfigureApInterface()
+	command.DisablePowerManagement()
 
 	cmd := exec.Command("hostapd", "-d", "/dev/stdin")
 
