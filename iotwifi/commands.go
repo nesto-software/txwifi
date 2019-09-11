@@ -29,7 +29,7 @@ func (c *Command) DisablePowerManagement() {
 
 // ConfigureApInterface configured the AP interface.
 func (c *Command) ConfigureApInterface() {
-	cmd := exec.Command("ifconfig", "wlan1", c.SetupCfg.HostApdCfg.Ip)
+	cmd := exec.Command("ifconfig", "uap0", c.SetupCfg.HostApdCfg.Ip)
 	cmd.Start()
 	cmd.Wait()
 }
