@@ -65,11 +65,12 @@ func (wpa *WpaCfg) StartAP() {
 		SetupCfg: wpa.WpaCfg,
 	}
 
-	command.RemoveApInterface()
-	command.AddApInterface()
-	command.UpApInterface()
-	command.ConfigureApInterface()
-	command.DisablePowerManagement()
+	// note: we use wlan1 as ap instead
+	//command.RemoveApInterface()
+	//command.AddApInterface()
+	//command.UpApInterface()
+	//command.ConfigureApInterface()
+	//command.DisablePowerManagement()
 
 	cmd := exec.Command("hostapd", "-d", "/dev/stdin")
 
