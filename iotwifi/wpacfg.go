@@ -60,16 +60,16 @@ func NewWpaCfg(log bunyan.Logger, cfgLocation string) *WpaCfg {
 func (wpa *WpaCfg) StartAP() {
 	wpa.Log.Info("Starting Hostapd.")
 
-	//command := &Command{
-	//	Log:      wpa.Log,
-	//	SetupCfg: wpa.WpaCfg,
-	//}
+	command := &Command{
+		Log:      wpa.Log,
+		SetupCfg: wpa.WpaCfg,
+	}
 
 	// note: we use wlan1 as ap instead
 	//command.RemoveApInterface()
 	//command.AddApInterface()
 	//command.UpApInterface()
-	//command.ConfigureApInterface()
+	command.ConfigureApInterface()
 	//command.DisablePowerManagement()
 
 	cmd := exec.Command("hostapd", "-d", "/dev/stdin")
