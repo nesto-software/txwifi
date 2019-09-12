@@ -59,7 +59,7 @@ func (c *Command) StartWpaSupplicant() {
 
 	args := []string{
 		"-d",
-		"-Dnl80211",
+		"-Dwext",
 		"-iwlan1",
 		"-c" + c.SetupCfg.WpaSupplicantCfg.CfgFile,
 	}
