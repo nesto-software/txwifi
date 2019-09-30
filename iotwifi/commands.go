@@ -81,6 +81,8 @@ func (c *Command) StartDnsmasq() {
 		"--dhcp-vendorclass=" + c.SetupCfg.DnsmasqCfg.VendorClass,
 		"--dhcp-authoritative",
 		"--log-facility=-",
+		"--interface=uap0",
+		"--except-interface=lo",
 		"--dhcp-option-force=160,http://192.168.27.1/", // see: https://tools.ietf.org/html/rfc7710
 		"--address=/admin.pos.nesto.iot/192.168.27.1",
 		"--address=/connectivitycheck.gstatic.com/216.58.206.131",
